@@ -5,9 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :last_name, presence: true
   validates :first_name, presence: true
-  validates :email, presence: true, uniqueness: true
+  validates :email, presence: true
+  validates :birthdate, presence: true
 
-  validates :birthdate, numericality:  { greater_than_or_equal_to: 18}, presence: true
   has_many :bookmarks, dependent: :destroy
   has_many :parties, dependent: :destroy
+
+
 end
