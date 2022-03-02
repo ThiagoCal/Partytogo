@@ -13,7 +13,7 @@ git commit -m "$message"
 
 branch=$(git rev-parse --abbrev-ref HEAD)
 
-git push origin $branch
+git push -u origin $branch
 
 echo "Wish to open a pull request? \n [Y/Enter to exit]"
 read PR
