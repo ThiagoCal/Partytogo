@@ -13,7 +13,15 @@ git commit -m "$message"
 
 branch=$(git rev-parse --abbrev-ref HEAD)
 
-git push -u origin $branch
+echo "Enter remote name (default: origin)"
+read remote
+
+if test -z "$var"
+  then
+        git push -u origin $branch
+  else
+        git push -u $remote $branch
+fi
 
 echo "Wish to open a pull request? \n [Y/Enter to exit]"
 read PR
