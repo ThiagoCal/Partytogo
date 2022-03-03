@@ -2,20 +2,30 @@
 
 reset=`tput sgr0`
 magenta=`tput setaf 5`
+blue=`tput setaf 4`
+gray=`tput setaf 7`
 
 start_time=$(date +%s.%3N)
 git add .
 
-echo "enter commit message"
+echo "${blue}enter commit message${reset}"
 read message
 
 git commit -m "$message"
 
 branch=$(git rev-parse --abbrev-ref HEAD)
 
-git push -u origin $branch
+echo "${blue}Enter remote name ${gray}(default: origin)${reset}"
+read remote
 
-echo "Wish to open a pull request? \n [Y/Enter to exit]"
+if test -z "$var"
+  then
+        git push -u origin $branch
+  else
+        git push -u $remote $branch
+fi
+
+echo "${blue}Wish to open a pull request? ${gray}[Y/Enter to exit]${reset}"
 read PR
 
 end_time=$(date +%s.%3N)
