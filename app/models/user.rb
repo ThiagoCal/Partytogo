@@ -10,6 +10,6 @@ class User < ApplicationRecord
 
   has_many :bookmarks, dependent: :destroy
   has_many :parties, dependent: :destroy
-
+  has_one_attached :photo
 
 end
