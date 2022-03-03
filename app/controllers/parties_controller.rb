@@ -9,13 +9,12 @@ class PartiesController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:user_id])
+
     @party = Party.new(party_params)
-    if @party.save
-      redirect_to user_path(@user)
-    else
-      :new
-    end
+    @user = User.find(params[:user_id])
+    @party.user = @user
+    @party.save
+
   end
 
   def edit
