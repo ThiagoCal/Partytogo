@@ -16,7 +16,7 @@ class PartiesController < ApplicationController
     @party.user = @user
     authorize @party
     @party.save
-    redirect_to root_path
+    redirect_to user_path(@user)
   end
 
   def edit

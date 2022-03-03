@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <h2>My parties</h2>
+        <div class = 'card'>
+         <% @parties.each do |party| %>
+             <%= cl_image_tag party.photo.key, class:"photo rounded-top card-img-top border", alt: party.name %>
+             <div class="card-body">
+               <h2 class="card-text"><%= party.name %></h2>
+               <h3 class="card-text"><%= party.date %></h3>
+               <p class="card-text"><%= party.address %></p>
+             </div>
+        </div>
+          <% end %>
+    </div>
+  </div>
+</div>
