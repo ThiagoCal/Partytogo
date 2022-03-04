@@ -1,7 +1,11 @@
 class PartiesController < ApplicationController
-  before_action :set_party, only:[:edit, :update]
+  before_action :set_party, only:[:edit, :update, :show]
   def index
     @parties = policy_scope(Party).order(date: :DESC)
+  end
+
+  def show
+    authorize @party
   end
 
   def new
