@@ -1,26 +1,21 @@
 <h2>List of parties</h2>
 
+
 <div class="container">
+  <h2>My parties</h2>
   <div class="row">
     <% @parties_display.each do |party| %>
       <div class="col-6">
-          <div class="card rounded-top"  style="width: 18rem; height: 10rem">
+        <div class = "card">
 
-
-            <div class="card-body">
-              <p class="card-text"><%= party.name %></p>
-              <p class="card-text"><%= party.description %></p>
-              <p class="card-text"><%= party.address %></p>
-              <p class="card-text"><%= party.price %></p>
-              <p class="card-text"><%= party.date %></p>
-              <p class="card-text"><%= party.rating %></p>
-              <p class="card-text"><%= party.capacity %></p>
-              <p class="card-text"><%= party.category %></p>
-            </div>
-              <%# <%= link_to "Open Party", party_path(party), class:"btn btn-flat" %>
+          <div class="card-body">
+            <h2 class="card-text"><%= party.name %></h2>
+            <h3 class="card-text"><%= party.date %></h3>
+            <p class="card-text"><%= party.address %></p>
           </div>
+        </div>
       </div>
-    <% end%>
+    <% end %>
   </div>
 </div>
 
