@@ -1,5 +1,5 @@
 class PartiesController < ApplicationController
-  before_action :set_party, only:[:edit, :update]
+  before_action :set_party, only:[:edit, :update, :show]
   def index
     @parties = policy_scope(Party).order(date: :DESC)
     @markers = @parties.geocoded.map do |party|
@@ -8,6 +8,10 @@ class PartiesController < ApplicationController
         lng: party.longitude
       }
     end
+  end
+
+  def show
+    authorize @party
   end
 
   def new
