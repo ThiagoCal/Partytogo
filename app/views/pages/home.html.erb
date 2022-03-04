@@ -1,8 +1,10 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://henpartyitaly.com/wp-content/uploads/2017/12/party.jpg);">
+<div class="banner m-0" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://henpartyitaly.com/wp-content/uploads/2017/12/party.jpg);">
   <div class="container">
     <h1>PartyToGo</h1>
     <p>Where you find the best parties around you!</p>
-    <a class="btn btn-flat" href="#">Apply now</a>
+    <div class="text-center rounded">
+      <%= link_to "Find you party now!", parties_display_index_path, class:"btn btn-primary" %>
+    </div>
   </div>
 </div>
 
@@ -28,9 +30,13 @@
 					<li class="tag__item"><i class="fas fa-tag mr-2"></i>Podcast</li>
 					<li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
 					<li class="tag__item play blue">
+
 						<a href="#"><i class="fas fa-play mr-2"></i>Play Episode</a>
 			    </li>
 				</ul> %>
+
+
+
 			</div>
 		</article>
 
