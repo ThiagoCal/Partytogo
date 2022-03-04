@@ -5,4 +5,5 @@ class UsersController < ApplicationController
     authorize @parties
   end
 
+
 end
