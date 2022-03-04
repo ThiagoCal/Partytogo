@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   end
   resources :bookmarks, only:[:delete]
   resources :reviews, only:[:delete, :patch]
-
+  resources :parties_display, only:[:index, :show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
