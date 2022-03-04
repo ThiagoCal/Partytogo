@@ -2,12 +2,6 @@ class PartiesController < ApplicationController
   before_action :set_party, only:[:edit, :update, :show]
   def index
     @parties = policy_scope(Party).order(date: :DESC)
-    @markers = @parties.geocoded.map do |party|
-      {
-        lat: party.latitude,
-        lng: party.longitude
-      }
-    end
   end
 
   def show
