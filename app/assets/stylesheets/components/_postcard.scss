@@ -11,7 +11,7 @@ $main-blue: #0076bd !default;
 $main-blue-rgb-015: rgba(0, 118, 189, 0.1) !default;
 
 /* This pen */
-body {
+.postcard {
 	font-family: 'Roboto', sans-serif;;
 	font-size: 16px;
 	color: #ffffff;
@@ -38,6 +38,7 @@ a, a:hover {
 	text-transform: uppercase;
 	text-align: center;
 	font-size: 2.5rem;
+  color: #f3f5f7;
 }
 
 /* Cards */
