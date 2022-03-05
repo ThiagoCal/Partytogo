@@ -1,46 +1,64 @@
-<main>
-  <div class="banner">
-    <%= cl_image_tag @party.photo.key, class: "banner_image" %>
+
+<header>
+  <div class="banner--image__background"
+       style="<%= background_image url: @party.photo.key, cloudinary: true  %>">
+    <h1 class="text-white"> <%= @party.name %> </h1>
+
+    <% if current_user == @party.user %>
+      <a class="party--edit__link" href="<%= edit_user_party_path(@party) %>">
+        <i class="fas fa-edit"></i>
+      </a>
+    <% end %>
   </div>
+</header>
 
+<main>
 
-  <div class = 'container'>
-  <div class = 'row'>
-    <div class = 'col-12'>
-      <table class = 'table table-bordered'>
-      <thead>
-        <tr>
-          <th scope = 'row'><h1> <%= @party.name %> </h1></th>
-        </tr>
-      </thead>
-      <tbody>
-      <tr>
-          <td><h3>Description : </h3></td>
-          <td><h3><%= @party.description %></h3></td>
-        </tr>
-        <tr>
-          <td><h3>Address : </h3></td>
-          <td><h3><%= @party.address %></h3></td>
-        </tr>
-        <tr>
-          <td><h3>Price R$</h3></h3></td>
-          <td><h3><%= @party.price %></h3></td>
-        </tr>
-        <tr>
-          <td><h3>Date : </h3></h3></td>
-          <td><h3><%= @party.date %></h3></td>
-        </tr>
-        <tr>
-          <td><h3>Category : </h3></h3></td>
-          <td><h3><%= @party.category %></h3></td>
-        </tr>
-        <tr>
-          <td><h3>Capaticy : </h3></h3></td>
-          <td><h3><%= @party.capacity %></h3></td>
-        </tr>
-        <tr>
-          <td><h3>Rating : </h3></h3></td>
-          <td><h3><%= @party.rating %></h3></td>
-        </tr>
-    </tbody>
-  </table>
+  <div class="container w-80">
+
+    <div class="row py-3">
+      <div class="col-12 col-md-6 col-lg-4">
+        <p class="fs-4">
+          <i class="far fa-money-bill-alt"></i>
+          <%= @party.price %>
+        </p>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <p class="fs-4">
+          <i class="fas fa-user-friends"></i>
+          <%= @party.capacity %>
+        </p>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <p class="fs-4 btn btn-dark round">
+          <i class="fas fa-music"></i>
+          <%= link_to @party.category, parties_display_index_path(query: @party.category), class:'text-reset' %>
+        </p>
+      </div>
+    </div>
+
+    <div class="row py-3">
+      <div class="col-12 col-md-6">
+        <p class="fs-4">
+          <i class="fas fa-calendar"></i>
+          <%= @party.date.strftime("%m/%d/%Y") %>
+        </p>
+      </div>
+      <div class="col-12 col-md-6">
+        <p class="fs-4">
+          <i class="fas fa-map-marker-alt"></i>
+          <%= @party.address %>
+        </p>
+      </div>
+    </div>
+
+    <div class="row py-4 bg-secondary bg-opacity-10 rounded">
+      <div class="col-12">
+        <p class="fs-4"><%= @party.description %></p>
+      </div>
+    </div>
+
+    <div class="row py-3">
+      <%# MAPA AQUI %>
+    </div>
+  </div>

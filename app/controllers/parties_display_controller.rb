@@ -2,6 +2,7 @@ class PartiesDisplayController < ApplicationController
 
   def index
     @parties_display = policy_scope(Party)
+    @parties_display = policy_scope(Party.where(category: params[:query])) if params[:query]
     # the `geocoded` scope filters only parties_display with coordinates (latitude & longitude)
     @markers = Party.geocoded.map do |party|
       {

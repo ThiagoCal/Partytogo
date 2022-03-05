@@ -18,7 +18,7 @@ branch=$(git rev-parse --abbrev-ref HEAD)
 echo "${blue}Enter remote name ${gray}(default: origin)${reset}"
 read remote
 
-if test -z "$var"
+if test -z "$remote"
   then
         git push -u origin $branch
   else
