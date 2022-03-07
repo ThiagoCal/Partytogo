@@ -1,5 +1,5 @@
 class PartiesDisplayController < ApplicationController
-
+  skip_before_action :authenticate_user!, only: :index
   def index
     @parties_display = policy_scope(Party)
     @parties_display = policy_scope(Party.where(category: params[:query])) if params[:query]
