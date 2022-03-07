@@ -1,0 +1,41 @@
+.airbnb-card {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+
+  .container {
+
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.airbnb-map {
+  height: 100vh;
+}
+
+.scrollable-col{
+  height: 80vh;
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    width: 2px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #9c9c9c18;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #737373a2;
+  }
+}
