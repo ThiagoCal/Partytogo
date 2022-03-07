@@ -4,6 +4,7 @@
   width: 100%;
   height: 250px;
   overflow: hidden;
+  position: relative;
 
   .container {
 
@@ -13,29 +14,33 @@
       width: 100%;
     }
   }
-}
 
-.airbnb-map {
-  height: 100vh;
-}
-
-.scrollable-col{
-  height: 80vh;
-  overflow: scroll;
-
-  &::-webkit-scrollbar {
-    width: 2px;
+  .date {
+    position: absolute;
+    top: 25px;
+    right: 15px;
   }
 
-  &::-webkit-scrollbar-track {
-    background: transparent;
+  .price {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
   }
 
-  &::-webkit-scrollbar-thumb {
-    background: #9c9c9c18;
+  .capacity {
+    position: absolute;
+    bottom: 50px;
+    right: 15px;
   }
 
-  &::-webkit-scrollbar-thumb:hover {
-    background: #737373a2;
+  .categories {
+    position: absolute;
+    bottom: 10px;
+  }
+
+  .image {
+    height: 80%;
+    background-size: cover;
+    background-position: center;
   }
 }

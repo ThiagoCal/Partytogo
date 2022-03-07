@@ -1,20 +1,28 @@
 <main>
   <div class="container">
-    <%# <h2 class="fw-bold">My parties</h2> %>
     <div class="row">
       <div class="col-8 scrollable-col">
 
         <% @parties.each do |party| %>
             <div class = 'airbnb-card row p-4'>
               <div class="col-4">
-                <div class="container w-80">
-                  <%= cl_image_tag party.photo.key, class:"", alt: party.name %>
+                <div class="container w-80 image rounded-3" style="<%= party.photo.attached? ? background_image(url: party.photo.key, cloudinary: true) : background_image(cloudinary: false) %>">
                 </div>
               </div>
               <div class="col-8">
-                <h2 class="card-text"><%= link_to party.name, user_party_path(id: party, user_id: current_user) %></h2>
-                <h3 class="card-text"><%= party.date %></h3>
-                <p class="card-text"><%= party.address %></p>
+                <p class="card-text text-black-50"><%= party.address %></p>
+                <p class="fs-3">
+                  <%= link_to party.name, user_party_path(id: party, user_id: current_user), class: '' %>
+                </p>
+                <p class="date text-muted"><%= party.date.strftime("%m/%d/%Y") %></p>
+                <p class="price fw-bold fs-5"><%= "R$#{sprintf('%.2f', party.price)}" %></p>
+                <p class="capacity text-muted">
+                  <i class="fas fa-user-friends"></i>
+                  <%= party.capacity %>
+                </p>
+                <p class="categories">
+                  <%= link_to party.category, parties_display_index_path(query: party.category), class: 'text-muted' %>
+                </p>
               </div>
             </div>
         <% end %>
