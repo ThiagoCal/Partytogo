@@ -6,12 +6,12 @@ class PartiesController < ApplicationController
 
   def show
     authorize @party
-    @markers = Party.geocoded.map do |party|
+    @markers = [
       {
-        lat: party.latitude,
-        lng: party.longitude
+        lat: @party.latitude,
+        lng: @party.longitude
       }
-    end
+    ]
   end
 
   def new

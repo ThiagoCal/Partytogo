@@ -2,67 +2,75 @@
 <header>
   <div class="banner--image__background"
        style="<%= background_image url: @party.photo.key, cloudinary: true  %>">
-    <h1 class="text-white"> <%= @party.name %> </h1>
 
     <% if current_user == @party.user %>
-      <a class="party--edit__link" href="<%= edit_user_party_path(@party) %>">
-        <i class="fas fa-edit"></i>
-      </a>
+      <div class="party--edit__link p-2 bg-dark bg-opacity-25">
+        <%= link_to user_party_path(@party), class: 'text-reset mx-2' do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+
+        <%= link_to user_party_path(@party), method: :delete, data: {confirm: 'Are you sure?'}, class: 'text-reset mx-2' do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </header>
 
 <main>
-
   <div class="container w-80">
 
     <div class="row py-3">
-      <div class="col-12 col-md-6 col-lg-4">
-        <p class="fs-4">
-          <i class="far fa-money-bill-alt"></i>
-          <%= @party.price %>
-        </p>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <p class="fs-4">
-          <i class="fas fa-user-friends"></i>
-          <%= @party.capacity %>
-        </p>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <p class="fs-4 btn btn-dark round">
-          <i class="fas fa-music"></i>
-          <%= link_to @party.category, parties_display_index_path(query: @party.category), class:'text-reset' %>
-        </p>
-      </div>
-    </div>
-
-    <div class="row py-3">
-      <div class="col-12 col-md-6">
-        <p class="fs-4">
-          <i class="fas fa-calendar"></i>
-          <%= @party.date.strftime("%m/%d/%Y") %>
-        </p>
-      </div>
-      <div class="col-12 col-md-6">
-        <p class="fs-4">
-          <i class="fas fa-map-marker-alt"></i>
-          <%= @party.address %>
-        </p>
-      </div>
-    </div>
-
-    <div class="row py-4 bg-secondary bg-opacity-10 rounded">
       <div class="col-12">
-        <p class="fs-4"><%= @party.description %></p>
+        <h1 class="fw-bold"> <%= @party.name %>
+          <span class="btn btn-outline-dark rounded">
+            <i class="fas fa-music"></i>
+            <%= link_to @party.category, parties_display_index_path(query: @party.category), class:'text-reset' %>
+          </span>
+        </h1>
+      </div>
+    </div>
+
+     <div class="row py-4 my-4 bg-secondary bg-opacity-10 rounded">
+      <div class="col-12">
+        <p class="fs-6"><%= @party.description %></p>
       </div>
     </div>
 
     <div class="row py-3">
-      <div style="width: 100%; height: 600px;"
+      <div class="col-12 col-md-6">
+        <div class="my-3">
+          <p class="fs-4">
+            <i class="fas fa-calendar opacity-75"></i>
+            <%= @party.date.strftime("%m/%d/%Y") %>
+          </p>
+        </div>
+        <div class="my-3">
+          <p class="fs-4">
+            <i class="far fa-money-bill-alt text-success opacity-75"></i>
+            <%= "R$#{sprintf('%.2f', @party.price)}" %>
+          </p>
+        </div>
+        <div class="my-3">
+          <p class="fs-4">
+            <i class="fas fa-user-friends opacity-75"></i>
+            <%= @party.capacity %>
+          </p>
+        </div>
+        <div class="my-3">
+          <p class="fs-4">
+            <i class="fas fa-map-marker-alt text-danger opacity-75"></i>
+            <%= @party.address %>
+          </p>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div style="width: 100%; height: 400px;"
           data-controller="mapbox"
           data-mapbox-markers-value="<%= @markers.to_json %>"
           data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
       </div>
     </div>
+
   </div>
