@@ -1,12 +1,12 @@
 <main>
 
 <div class="container w-80">
-  <h2 class="fw-bold pb-5">Post your party!</h2>
+  <h2 class="fw-bold pb-5">Update your party!</h2>
 
     <div class="row">
       <div class="col-12">
 
-          <%= simple_form_for [@user, @party] do |f| %>
+          <%= simple_form_for [@user, @party], url: user_party_path(@party) do |f| %>
           <%= f.input :name %>
           <%= f.input :photo, as: :file %>
           <%= f.input :address %>
@@ -19,7 +19,7 @@
 
           <div class="py-3">
             <%= f.button :submit, class: "btn btn-outline-primary"%>
-            <%= link_to 'Cancel', user_path(@user), class:'btn btn-outline-danger' %>
+            <%= link_to 'Cancel', user_party_path(@party), class:'btn btn-outline-danger' %>
           </div>
           <% end %>
 

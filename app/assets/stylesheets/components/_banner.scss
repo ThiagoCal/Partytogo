@@ -4,10 +4,28 @@
   padding: 20px 0;
   margin-left: 5%;
   margin-right: 5%;
-
 }
 
 .banner_image{
   height: 400px;
   width: 100%;
+}
+
+.banner--image__background{
+  height: 70vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  h1 {
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+  }
 }

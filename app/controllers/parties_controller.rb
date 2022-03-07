@@ -6,6 +6,12 @@ class PartiesController < ApplicationController
 
   def show
     authorize @party
+    @markers = [
+      {
+        lat: @party.latitude,
+        lng: @party.longitude
+      }
+    ]
   end
 
   def new
