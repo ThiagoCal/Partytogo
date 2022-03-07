@@ -13,3 +13,8 @@
 @import "components/index";
 @import "pages/index";
 @import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
+
+main {
+  min-height: 80vh;
+  padding: 50px 0;
+}
