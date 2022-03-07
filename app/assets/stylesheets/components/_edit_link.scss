@@ -1,0 +1,14 @@
+.party--edit__link {
+  position: absolute;
+  color: white;
+  top: 25px;
+  right: 25px;
+
+  i {
+    opacity: .7;
+
+    &:hover{
+      opacity: 1;
+    }
+  }
+}
