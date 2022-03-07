@@ -3,7 +3,6 @@
     <%= cl_image_tag @party.photo.key, class: "banner_image" %>
   </div>
 
-
   <div class = 'container'>
   <div class = 'row'>
     <div class = 'col-12'>
@@ -44,3 +43,6 @@
         </tr>
     </tbody>
   </table>
+</main>
+
+<%= button_to "delete", user_party_path(@party), :method => :delete, class: 'btn btn-danger'%>
