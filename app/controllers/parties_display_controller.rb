@@ -12,10 +12,10 @@ class PartiesDisplayController < ApplicationController
     end
   end
 
-  def show
-    @party_display = Party.find(params[:id])
-    authorize @party_display
-  end
+  # def show
+  #   @party_display = Party.find(params[:id])
+  #   authorize @party_display
+  # end
 
   private
     def party_params
