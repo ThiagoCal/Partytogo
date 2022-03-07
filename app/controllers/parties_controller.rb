@@ -1,5 +1,5 @@
 class PartiesController < ApplicationController
-  before_action :set_party, only:[:edit, :update, :show]
+  before_action :set_party, only:[:edit, :update, :show, :destroy]
   def index
     @parties = policy_scope(Party).order(date: :DESC)
   end
@@ -43,9 +43,9 @@ class PartiesController < ApplicationController
   end
 
   def destroy
-    authorize @party
     @party.destroy
     redirect_to user_path(@party.user)
+    authorize @party
   end
 
   private
