@@ -1,0 +1,46 @@
+<main>
+  <div class="banner">
+    <%= cl_image_tag @party_display.photo.key, class: "banner_image" %>
+  </div>
+
+
+  <div class = 'container'>
+  <div class = 'row'>
+    <div class = 'col-12'>
+      <table class = 'table table-bordered'>
+      <thead>
+        <tr>
+          <th scope = 'row'><h1> <%= @party_display.name %> </h1></th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr>
+          <td><h3>Description : </h3></td>
+          <td><h3><%= @party_display.description %></h3></td>
+        </tr>
+        <tr>
+          <td><h3>Address : </h3></td>
+          <td><h3><%= @party_display.address %></h3></td>
+        </tr>
+        <tr>
+          <td><h3>Price R$</h3></h3></td>
+          <td><h3><%= @party_display.price %></h3></td>
+        </tr>
+        <tr>
+          <td><h3>Date : </h3></h3></td>
+          <td><h3><%= @party_display.date %></h3></td>
+        </tr>
+        <tr>
+          <td><h3>Category : </h3></h3></td>
+          <td><h3><%= @party_display.category %></h3></td>
+        </tr>
+        <tr>
+          <td><h3>Capaticy : </h3></h3></td>
+          <td><h3><%= @party_display.capacity %></h3></td>
+        </tr>
+        <tr>
+          <td><h3>Rating : </h3></h3></td>
+          <td><h3><%= @party_display.rating %></h3></td>
+        </tr>
+    </tbody>
+  </table>
