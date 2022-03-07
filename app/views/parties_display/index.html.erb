@@ -7,7 +7,12 @@
         <div class="col-6">
           <div class = "card">
             <div class="photo" style="overflow: hidden">
-              <%= cl_image_tag party.photo.key, class: 'party--card__photo' %>
+              <% if party.photo.attached? %>
+                 <%= cl_image_tag party.photo.key, class: 'party--card__photo' %>
+              <% else %>
+                  <img src="https://henpartyitaly.com/wp-content/uploads/2017/12/party.jpg"
+                       alt="" class="party--card__photo">
+              <% end %>
             </div>
             <div class="card-body">
               <h2 class="card-text"><%= link_to party.name, user_party_path(id: party, user_id: party.user) %></h2>
