@@ -5,7 +5,7 @@
 
     <% if current_user == @party.user %>
       <div class="party--edit__link p-2 bg-dark bg-opacity-25">
-        <%= link_to user_party_path(@party), class: 'text-reset mx-2' do %>
+        <%= link_to edit_user_party_path(@party), class: 'text-reset mx-2' do %>
           <i class="fas fa-edit"></i>
         <% end %>
 
