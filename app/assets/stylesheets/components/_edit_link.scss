@@ -3,5 +3,12 @@
   color: white;
   top: 25px;
   right: 25px;
-  opacity: .7;
+
+  i {
+    opacity: .7;
+
+    &:hover{
+      opacity: 1;
+    }
+  }
 }
