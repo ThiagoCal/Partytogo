@@ -8,21 +8,24 @@ export default class extends Controller {
   static targets = ['github']
 
   connect() {
-
+    this.githubTarget.innerHTML = this.#userInfo();
   }
 
 
   #fetchUserInfo(user) {
     const url = `https://api.github.com/users/${user}`
+
     fetch(url)
       .then(response => response.json())
       .then((data) => {
-
+        user = data;
       })
+
+      return user;
   }
 
   #userInfo() {
-    return this.usernamesValues.map((user) => {
+    return this.usernamesValue.map((user) => {
       const info = this.#fetchUserInfo(user)
       this.#htmlTemplate(info)
     })
