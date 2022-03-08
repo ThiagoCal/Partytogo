@@ -1,12 +1,17 @@
 class UsersController < ApplicationController
   def show
-    @parties = current_user.parties
-    @markers = Party.geocoded.map do |party|
-      {
-        lat: party.latitude,
-        lng: party.longitude
-      }
+    if current_user.is_producer
+      @parties = current_user.parties
+      authorize @parties
+      @markers = Party.geocoded.map do |party|
+        {
+          lat: party.latitude,
+          lng: party.longitude
+        }
+      end
+    else
+      @bookmarks = current_user.bookmarks
+      authorize @bookmarks
     end
-    authorize @parties
   end
 end
