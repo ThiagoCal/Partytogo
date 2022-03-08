@@ -1,20 +1,20 @@
 class BookmarksController < ApplicationController
 
-  # def update
-  #   bookmark = Bookmark.where(party: Party.find(params[:party]), user: current_user)
-  #   if bookmark == []
-  #     Bookmark.create(party: Party.find(params[:party]), user: current_user)
-  #     @bookmark_exists = true
-  #   else
-  #   bookmark.destroy_all
-  #   @bookmark_exists = false
-  #   end
-  #   respond_to do |format|
-  #     format.html {}
-  #     format.js {}
-  #   end
-  # end
+  def new
 
+    @party = Party.find(params[:party_id])
+    @bookmark = Bookmark.new
+    authorize @bookmark
+  end
 
+  def create
+    @party = Party.find(params[:party_id])
+    @bookmark = Bookmark.new
+    authorize @bookmark
+    @bookmark.user = current_user
+    @bookmark.party = @party
+    @bookmark.save
+    redirect_to user_path(current_user)
+  end
 
 end

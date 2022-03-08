@@ -2,17 +2,32 @@
   <div class="container">
     <h2 class="fw-bold">My parties</h2>
     <div class="row">
-      <% @parties.each do |party| %>
-        <div class="col-6">
-          <div class = 'card'>
-            <%= cl_image_tag party.photo.key, class:"photo rounded-top card-img-top border", alt: party.name %>
-            <div class="card-body">
-              <h2 class="card-text"><%= link_to party.name, user_party_path(id: party, user_id: current_user) %></h2>
-              <h3 class="card-text"><%= party.date %></h3>
-              <p class="card-text"><%= party.address %></p>
+      <% if current_user.is_producer %>
+        <% @parties.each do |party| %>
+          <div class="col-6">
+            <div class = 'card'>
+              <%= cl_image_tag party.photo.key, class:"photo rounded-top card-img-top border", alt: party.name %>
+              <div class="card-body">
+                <h2 class="card-text"><%= link_to party.name, user_party_path(id: party, user_id: current_user) %></h2>
+                <h3 class="card-text"><%= party.date %></h3>
+                <p class="card-text"><%= party.address %></p>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
+      <% else %>
+        <% @bookmarks.each do |bookmark| %>
+          <div class="col-6">
+            <div class = 'card'>
+              <%= cl_image_tag bookmark.party.photo.key, class:"photo rounded-top card-img-top border", alt: bookmark.party.name %>
+              <div class="card-body">
+                <h2 class="card-text"><%= link_to bookmark.party.name, user_party_path(id: bookmark.party, user_id: current_user) %></h2>
+                <h3 class="card-text"><%= bookmark.party.date %></h3>
+                <p class="card-text"><%= bookmark.party.address %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>

@@ -12,6 +12,7 @@ class PartiesController < ApplicationController
         lng: @party.longitude
       }
     ]
+    @bookmark = Bookmark.new
   end
 
   def new
