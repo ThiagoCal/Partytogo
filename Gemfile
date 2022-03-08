@@ -29,7 +29,7 @@ gem 'cloudinary', '~> 1.16.0'
 gem "geocoder"
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-
+gem 'jquery-rails'
 gem 'pg_search', '~> 2.3.0'
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
