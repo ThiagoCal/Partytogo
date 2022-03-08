@@ -1,10 +1,23 @@
-<div class="search_bar">
-  <%= form_tag parties_display_index_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find your party!"
-    %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
+<div class="container">
+  <div class="row">
+    <%= form_tag parties_display_index_path, class:"align-content-center", method: :get do %>
+      <div class="justify-content-center d-flex">
+        <div class= "justify-content-center col-2 d-flex">
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control col-2 m-0.5",
+            placeholder: "Find your party!"
+          %>
+
+          <%= date_field_tag :query,
+            params[:query],
+            class: "form-control col-2 m-0.5",
+            placeholder: "dd/mm/yyyy"
+          %>
+
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+        </div>
+      </div>
     <% end %>
+  </div>
 </div>
