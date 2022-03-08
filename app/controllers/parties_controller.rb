@@ -44,9 +44,9 @@ class PartiesController < ApplicationController
   end
 
   def destroy
-    authorize @party
     @party.destroy
     redirect_to user_path(@party.user)
+    authorize @party
   end
 
   private

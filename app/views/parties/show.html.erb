@@ -1,7 +1,7 @@
 
 <header>
   <div class="banner--image__background"
-       style="<%= background_image url: @party.photo.key, cloudinary: true  %>">
+       style="<%= @party.photo.attached? ? background_image(url: @party.photo.key, cloudinary: true) : background_image  %>">
 
     <% if current_user == @party.user %>
       <div class="party--edit__link p-2 bg-dark bg-opacity-25">
@@ -82,3 +82,4 @@
       </div>
     </div>
   </div>
+</main>
