@@ -1,0 +1,17 @@
+footer {
+  img {
+    width: 70px;
+    border-radius: 50%;
+    outline: 1px transparent solid;
+    transition: .5s;
+
+    &:hover {
+      outline: 5px white solid;
+      outline-offset: 5px;
+    }
+  }
+
+  p {
+    text-align: end;
+  }
+}
