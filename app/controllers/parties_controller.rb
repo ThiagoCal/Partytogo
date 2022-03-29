@@ -1,5 +1,5 @@
 class PartiesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show]
+  skip_before_action :authenticate_user!, only: [:show, :index]
   before_action :set_party, only:[:edit, :update, :show, :destroy]
   def index
     @parties = policy_scope(Party).order(date: :DESC)
