@@ -2,7 +2,7 @@ class Party < ApplicationRecord
   belongs_to :user
   has_many :bookmarks, dependent: :destroy
   has_one_attached :photo
-
+  before_destroy :purge_photo
   validates :name, presence: true
   validates :description, presence: true
   validates :price, presence: true
@@ -21,5 +21,8 @@ class Party < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
-
+  private
+  def purge_photo
+    self.photo.purge
+  end
 end
