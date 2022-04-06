@@ -13,7 +13,7 @@
               <div class="col-8">
                 <p class="card-text text-black-50"><%= party.address %></p>
                 <p class="fs-3">
-                  <%= link_to party.name, user_party_path(id: party, user_id: current_user), class: '' %>
+                  <%= link_to party.name, user_party_path(id: party, user_id: party.user), class: '' %>
                 </p>
                 <p class="date text-muted"><%= party.date.strftime("%m/%d/%Y") %></p>
                 <p class="price fw-bold fs-5"><%= "R$#{sprintf('%.2f', party.price)}" %></p>

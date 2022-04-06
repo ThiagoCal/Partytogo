@@ -2,14 +2,13 @@ class PartiesDisplayController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   def index
 
-    if params[:query].present?
-      @parties_display = policy_scope(Party.search(params[:query]))
-
-    else
+    if params[:query].blank?
       @parties_display = policy_scope(Party)
+    else
+      @parties_display = policy_scope(Party.search(params[:query]))
       # the `geocoded` scope filters only parties_display with coordinates (latitude & longitude)
     end
-    @markers = Party.geocoded.map do |party|
+    @markers = @parties_display.geocoded.map do |party|
       {
         lat: party.latitude,
         lng: party.longitude
