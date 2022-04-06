@@ -64,7 +64,7 @@
           </p>
         </div>
         <div class = 'my-3'>
-        <% unless current_user.is_producer %>
+        <% unless !@party.user.is_producer %>
           <%= simple_form_for [@party, @bookmark] do |f| %>
             <%= f.button(:submit, class: "btn btn-primary") do %>
               <i class="icon-ok icon-white"></i> Save
